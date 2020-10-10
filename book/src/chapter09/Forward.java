@@ -1,8 +1,6 @@
-package chapter3;
+package chapter09;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Hello
+ * Servlet implementation class Forward
  */
-@WebServlet("chapter3/Hello")
-public class Hello extends HttpServlet 
+@WebServlet("/chapter9/forward")
+public class Forward extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
 
@@ -23,9 +21,7 @@ public class Hello extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		PrintWriter out = response.getWriter();
-		out.println("Hello!");
-		out.println(new Date());
+		request.getRequestDispatcher("forward.jsp").forward(request, response);
 	}
 
 }
